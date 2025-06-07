@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Convert text to uppercase, lowercase, title case, or sentence case. Free online text case converter and character counter tools." />
+  <meta name="keywords" content="text case converter, uppercase, lowercase, title case, sentence case, online tool, character counter" />
+  <title>Online Text Case Converter & Character Counter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #222;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    textarea {
+      width: 96%;
+      height: 200px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-top: 1rem;
+    }
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    .info {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .banner-ad {
+      text-align: center;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #e2e8f0;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 728px;
+      color: #333;
+      font-size: 1rem;
+    }
+    .seo-text {
+      max-width: 800px;
+      margin: 2rem auto 4rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      color: #333;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .seo-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .seo-text p {
+      margin-bottom: 1rem;
+    }
+    .seo-text ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .block-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 99999;
+        padding: 20px;
+        font-family: sans-serif;
+        font-size: 1.2em;
+        display: none;
+    }
+
+    .block-overlay button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #ff5555;
+        color: white;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div id="block-overlay" class="block-overlay">
+    <div>
+      <p><strong>AdBlock Detected</strong></p>
+      <p>Please disable your ad blocker to continue using this site. Ads help us keep this service free.</p>
+      <button onclick="location.reload()">I Disabled AdBlock</button>
+    </div>
+  </div>
+  <header>
+    <h1>🧰 Text Case Converter & Character Counter</h1>
+    <p>Easily convert your text and count characters in real-time.</p>
+  </header>
+
+  <div class="banner-ad">
+    <iframe data-aa='2397717' src='//ad.a-ads.com/2397717?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+  </div>
+
+  <div class="container">
+    <label for="inputText"><strong>Enter your text below:</strong></label>
+    <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
+
+    <div class="buttons">
+      <button onclick="convert('uppercase')">UPPERCASE</button>
+      <button onclick="convert('lowercase')">lowercase</button>
+      <button onclick="convert('titlecase')">Title Case</button>
+      <button onclick="convert('sentencecase')">Sentence case</button>
+      <button onclick="copyText()">📋 Copy</button>
+    </div>
+
+    <div class="info" id="charCount">Character count: 0</div>
+  </div>
+
+  <div class="banner-ad"><iframe data-aa='2397717' src='//ad.a-ads.com/2397717?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe></div>
+
+  <section class="seo-text" aria-label="Frequently asked questions about text case conversion">
+    <h2>What is a Text Case Converter?</h2>
+    <p>A text case converter is an online tool that allows you to change the letter casing of any text easily. Whether you want to convert your text to uppercase, lowercase, title case, or sentence case, this tool makes the process fast and convenient.</p>
+
+    <h2>How to Use the Text Case Converter?</h2>
+    <p>Simply paste or type your text into the input box above, then click one of the buttons to transform your text into the desired case. The character counter updates in real-time, helping you keep track of your text length.</p>
+
+    <h2>What Are Different Text Cases?</h2>
+    <ul>
+      <li><strong>Uppercase:</strong> Converts all letters to capital letters.</li>
+      <li><strong>Lowercase:</strong> Converts all letters to small letters.</li>
+      <li><strong>Title Case:</strong> Capitalizes the first letter of each word.</li>
+      <li><strong>Sentence Case:</strong> Capitalizes the first letter of each sentence, including after periods, exclamation marks, and question marks.</li>
+    </ul>
+
+    <h2>Why Use a Character Counter?</h2>
+    <p>A character counter is useful for writers, students, and social media users to ensure their text fits within limits, such as Twitter posts or form fields. This tool provides instant feedback on the number of characters as you type or convert your text.</p>
+
+    <h2>Is This Text Case Converter Free to Use?</h2>
+    <p>Yes! Our text case converter and character counter are completely free, accessible online without the need for any downloads or installations.</p>
+  </section>
+
+  <script>
+    const inputText = document.getElementById('inputText');
+    const charCount = document.getElementById('charCount');
+
+    function convert(type) {
+      let text = inputText.value;
+      switch(type) {
+        case 'uppercase':
+          inputText.value = text.toUpperCase();
+          break;
+        case 'lowercase':
+          inputText.value = text.toLowerCase();
+          break;
+        case 'titlecase':
+          inputText.value = text.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+          break;
+        case 'sentencecase':
+          inputText.value = sentenceCase(text);
+          break;
+      }
+      updateCharCount();
+    }
+
+    function sentenceCase(text) {
+      return text.toLowerCase()
+        .replace(/([.!?]\s*)([a-z])/g, (_, sep, char) => sep + char.toUpperCase())
+        .replace(/^\s*[a-z]/, match => match.toUpperCase());
+    }
+
+    function copyText() {
+      inputText.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+
+    function updateCharCount() {
+      charCount.innerText = `Character count: ${inputText.value.length}`;
+    }
+
+    inputText.addEventListener('input', updateCharCount);
+
+    async function detectAdBlock() {
+        const overlay = document.getElementById('block-overlay');
+        try {
+            const response = await fetch("https://ad.a-ads.com/2397717?size=728x90", {
+            method: "GET",
+            mode: "no-cors",
+            });
+        } catch (e) {
+            overlay.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    setTimeout(() => {
+      detectAdBlock();
+    }, 1000);
+  </script>
+</body>
+</html>
