@@ -161,6 +161,16 @@
       <button onclick="convert('titlecase')">Title Case</button>
       <button onclick="convert('sentencecase')">Sentence case</button>
       <button onclick="copyText()">📋 Copy</button>
+
+      <select id="extraConvertSelect" style="padding: 0.6rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;">
+        <option value="">-- More conversions --</option>
+        <option value="binary">To Binary</option>
+        <option value="base64">To Base64</option>
+        <option value="reverse">Reverse Text</option>
+        <option value="hex">To Hexadecimal</option>
+        <option value="urlencode">URL Encode</option>
+      </select>
+      <button onclick="convertExtra()">Convert</button>
     </div>
 
     <div class="info" id="charCount">Character count: 0</div>
@@ -188,6 +198,15 @@
 
     <h2>Is This Text Case Converter Free to Use?</h2>
     <p>Yes! Our text case converter and character counter are completely free, accessible online without the need for any downloads or installations.</p>
+
+    <h2>Other Useful Text Conversions</h2>
+    <ul>
+      <li><strong>Binary:</strong> Converts your text into a stream of binary (0s and 1s).</li>
+      <li><strong>Base64:</strong> Encodes your text in Base64, often used in data transmission.</li>
+      <li><strong>Reverse:</strong> Reverses the entire text string, useful for fun or testing.</li>
+      <li><strong>Hexadecimal:</strong> Converts your text into hexadecimal format, often used in programming.</li>
+      <li><strong>URL Encode:</strong> Encodes your text for safe transmission in URLs, replacing spaces and special characters with their percent-encoded equivalents.</li>
+    </ul>
   </section>
 
   <script>
@@ -228,6 +247,35 @@
     function updateCharCount() {
       charCount.innerText = `Character count: ${inputText.value.length}`;
     }
+
+    function convertExtra() {
+      const option = document.getElementById("extraConvertSelect").value;
+      let text = inputText.value;
+
+      if (!option) return;
+
+      switch(option) {
+        case 'binary':
+          inputText.value = text.split('').map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
+          break;
+        case 'base64':
+          inputText.value = btoa(text);
+          break;
+        case 'reverse':
+          inputText.value = text.split('').reverse().join('');
+          break;
+        case 'hex':
+          inputText.value = text.split('').map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
+          break;
+        case 'urlencode':
+          inputText.value = encodeURIComponent(text);
+          break;
+        default:
+          break;
+      }
+      updateCharCount();
+    }
+
 
     inputText.addEventListener('input', updateCharCount);
 
