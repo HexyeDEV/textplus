@@ -1,6 +1,6 @@
 # 🧰 Text Case Converter & Character Counter
 
-**TextTools AI** presents a lightweight, fast, and free **Text Case Converter** – a handy tool that helps you easily convert text to UPPERCASE, lowercase, Title Case, or Sentence case. It also includes a real-time **character counter**, perfect for writers, developers, students, and marketers.
+A lightweight, fast, and free **Text Case Converter** – a handy tool that helps you easily convert text to UPPERCASE, lowercase, Title Case, or Sentence case. It also includes a real-time **character counter**, perfect for writers, developers, students, and marketers.
 
 [👉 Try it live](https://textplus.hexye.xyz)  
 *Free, no login.*
@@ -13,7 +13,6 @@
 - ✅ Real-time **character count**
 - ✅ Automatically capitalize after `.`, `?`, `!` in sentence case
 - ✅ Lightweight, mobile-friendly UI
-- ✅ SEO-optimized and monetized with banner ad space
 
 ---
 
