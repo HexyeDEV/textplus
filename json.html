@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Convert JSON to YAML and YAML to JSON formats easily. Free online JSON to YAML and YAML to JSON converter tool." />
+  <meta name="keywords" content="JSON to YAML converter, YAML to JSON converter, online tool, text converter" />
+  <title>Online JSON to YAML and YAML to JSON Text Converter</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #222;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    textarea {
+      width: 96%;
+      height: 200px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-top: 1rem;
+    }
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    .info {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .banner-ad {
+      text-align: center;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #e2e8f0;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 728px;
+      color: #333;
+      font-size: 1rem;
+    }
+    .seo-text {
+      max-width: 800px;
+      margin: 2rem auto 4rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      color: #333;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .seo-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .seo-text p {
+      margin-bottom: 1rem;
+    }
+    .seo-text ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .block-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 99999;
+        padding: 20px;
+        font-family: sans-serif;
+        font-size: 1.2em;
+        display: none;
+    }
+
+    .block-overlay button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #ff5555;
+        color: white;
+        cursor: pointer;
+    }
+  </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+    <div id="block-overlay" class="block-overlay">
+    <div>
+      <p><strong>AdBlock Detected</strong></p>
+      <p>Please disable your ad blocker to continue using this site. Ads help us keep this service free.</p>
+      <button onclick="location.reload()">I Disabled AdBlock</button>
+    </div>
+  </div>
+  <header>
+    <h1>🧰 JSON to YAML and YAML to JSON Text Converter</h1>
+    <p>Easily convert your text  between JSON and YAML formats with our free online tool. Just paste your text, choose the conversion type, and get the result instantly!</p>
+    <br>
+    <p>Try our <a href="https://textplus.hexye.xyz/">Text Case Converter</a> for more text manipulation options!</p>
+  </header>
+
+  <div class="banner-ad">
+    <iframe data-aa='2397717' src='//ad.a-ads.com/2397717?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+  </div>
+
+  <div class="container">
+    <label for="inputText"><strong>Enter your text below:</strong></label>
+    <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
+
+    <div class="buttons">
+      <button onclick="convert('json')">Convert JSON to YAML</button>
+      <button onclick="convert('yaml')">Convert YAML to JSON</button>
+  </div>
+
+  <div class="banner-ad"><iframe data-aa='2397717' src='//ad.a-ads.com/2397717?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe></div>
+
+  <section class="seo-text" aria-label="Frequently asked questions about text case conversion">
+    <h2>What is JSON to YAML and YAML to JSON Conversion?</h2>
+    <p>JSON (JavaScript Object Notation) and YAML (YAML Ain't Markup Language) are both data serialization formats. JSON is widely used for data interchange, while YAML is often preferred for configuration files due to its readability.</p>
+    <p>Converting between these formats allows developers to work with data in the format that best suits their needs. JSON is more compact and easier for machines to parse, while YAML is more human-readable and supports comments.</p>
+    <h2>How to Use the Converter</h2>
+    <p>To convert text between JSON and YAML:</p>
+    <ul>
+        <li>Paste your JSON or YAML text into the input area.</li>
+        <li>Click the "Convert JSON to YAML" button to convert JSON to YAML format.</li>
+        <li>Click the "Convert YAML to JSON" button to convert YAML to JSON format.</li>
+        <li>The converted text will appear in the same input area.</li>
+    </ul>
+    <h2>Why Use This Converter?</h2>
+    <p>This online converter is designed to be simple and efficient, allowing you to quickly convert between JSON and YAML formats without the need for complex software or programming knowledge. It's perfect for developers, data analysts, and anyone who needs to work with these formats regularly.</p>
+    <h2>Is my  data secure?</h2>
+    <p>Yes, your data is processed securely. The conversion happens entirely in your browser, and no data is sent to any server. This ensures your information remains private and secure.</p>
+  </section>
+
+  <script>
+
+    const inputText = document.getElementById('inputText');
+
+    function convert(type) {
+        let text = inputText.value.trim();
+        if (!text) {
+            alert("Please enter some text to convert.");
+            return;
+        }
+
+        try {
+            if (type === 'json') {
+                // Convert JSON to YAML
+                const jsonObject = JSON.parse(text);
+                const yamlText = jsyaml.dump(jsonObject);
+                inputText.value = yamlText;
+            } else if (type === 'yaml') {
+                // Convert YAML to JSON
+                const jsonObject = jsyaml.load(text);
+                const jsonText = JSON.stringify(jsonObject, null, 2);
+                inputText.value = jsonText;
+            }
+        } catch (error) {
+            alert("Error in conversion: " + error.message);
+        }
+    }
+
+    async function detectAdBlock() {
+        const overlay = document.getElementById('block-overlay');
+        try {
+            const response = await fetch("https://ad.a-ads.com/2397717?size=728x90", {
+            method: "GET",
+            mode: "no-cors",
+            });
+        } catch (e) {
+            overlay.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    setTimeout(() => {
+      detectAdBlock();
+    }, 1000);
+  </script>
+</body>
+</html>
